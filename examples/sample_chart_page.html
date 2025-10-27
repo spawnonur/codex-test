@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Örnek Mağaza - Satış Panosu</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2rem; }
+        section { margin-bottom: 2rem; }
+        .product-card { border: 1px solid #ccc; padding: 1rem; border-radius: 8px; width: 220px; display: inline-block; margin-right: 1rem; vertical-align: top; }
+        .product-card img { max-width: 100%; height: auto; border-radius: 4px; }
+        .product-card .price { color: #0a7f2e; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Örnek Mağaza Satış Panosu</h1>
+    <p>Bu sayfa, plug-in'in veri çıkarma yeteneklerini test etmek için hazırlanmıştır.</p>
+
+    <section>
+        <h2>Satış Grafiği</h2>
+        <div id="chart-container">
+            <canvas id="sales-chart"></canvas>
+        </div>
+        <script id="chart-data" type="application/json" data-chart="sales">
+        {
+            "chart": {
+                "title": "2024 Aylık Satış Trendleri",
+                "labels": ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran"],
+                "datasets": [
+                    {
+                        "label": "Akıllı Telefon",
+                        "data": [120, 150, 170, 165, 180, 220]
+                    },
+                    {
+                        "label": "Dizüstü Bilgisayar",
+                        "data": [80, 95, 105, 115, 125, 140]
+                    }
+                ]
+            }
+        }
+        </script>
+    </section>
+
+    <section id="product-list">
+        <h2>Popüler Ürünler</h2>
+        <article class="product-card" data-product>
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTgwJyBoZWlnaHQ9JzEyMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cmVjdCB3aWR0aD0nMTgwJyBoZWlnaHQ9JzEyMCcgZmlsbD0nI2Y5NjE3MCcvPjx0ZXh0IHg9JzkwJyB5PSc2MCcgc3R5bGU9J2ZpbGw6I2ZmZjtmb250LXNpemU6MjBweDt0ZXh0LWFuY2hvcjptaWRkbGUnPkFUXzwvdGV4dD48L3N2Zz4=" alt="Akıllı Telefon">
+            <h3 class="name">ATX Akıllı Telefon</h3>
+            <p class="description">6.5" OLED ekran, 256GB depolama</p>
+            <span class="price" data-price="23999.90">₺23.999,90</span>
+        </article>
+        <article class="product-card" data-product>
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTgwJyBoZWlnaHQ9JzEyMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cmVjdCB3aWR0aD0nMTgwJyBoZWlnaHQ9JzEyMCcgZmlsbD0nIzY2OGJmOCcvPjx0ZXh0IHg9JzkwJyB5PSc2MCcgc3R5bGU9J2ZpbGw6I2ZmZjtmb250LXNpemU6MjBweDt0ZXh0LWFuY2hvcjptaWRkbGUnPkxQVDwvdGV4dD48L3N2Zz4=" alt="Dizüstü Bilgisayar">
+            <h3 class="name">LPT Dizüstü Bilgisayar</h3>
+            <p class="description">14" ekran, 16GB RAM, 1TB SSD</p>
+            <span class="price" data-price="34999.00">₺34.999,00</span>
+        </article>
+        <article class="product-card" data-product>
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTgwJyBoZWlnaHQ9JzEyMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cmVjdCB3aWR0aD0nMTgwJyBoZWlnaHQ9JzEyMCcgZmlsbD0nI2ZmYzI2NCcvPjx0ZXh0IHg9JzkwJyB5PSc2MCcgc3R5bGU9J2ZpbGw6I2ZmZjtmb250LXNpemU6MjBweDt0ZXh0LWFuY2hvcjptaWRkbGUnPlNNVDwvdGV4dD48L3N2Zz4=" alt="Akıllı Saat">
+            <h3 class="name">SMT Akıllı Saat</h3>
+            <p class="description">E-SIM desteği, 7 gün pil ömrü</p>
+            <span class="price" data-price="5999.50">₺5.999,50</span>
+        </article>
+    </section>
+</body>
+</html>
