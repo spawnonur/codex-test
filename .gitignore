@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+scraper.db
+*.sqlite3
+.env

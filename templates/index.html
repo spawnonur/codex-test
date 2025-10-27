@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grafik ve Ürün Veri Çıkarıcı</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>Grafik ve Ürün Veri Çıkarıcı</h1>
+            <p>Bir web sayfasındaki grafik verilerini, ürün kartlarını ve görselleri tek panelde toplayın.</p>
+        </header>
+        <section class="controls" aria-label="Scraping form">
+            <form id="scrape-form">
+                <label class="sr-only" for="url">Hedef URL</label>
+                <input type="url" id="url" name="url" placeholder="https://ornek-sayfa.com" required>
+                <button type="submit" class="primary">Siteyi Tara</button>
+                <button type="button" id="sample-button" class="secondary">Örnek Sayfayı Kullan</button>
+            </form>
+            <p class="hint">İnternet erişimi gerektirmeyen hızlı bir demo için “Örnek Sayfayı Kullan” seçeneğini deneyebilirsiniz.</p>
+            <div id="status" class="status" role="status" aria-live="polite"></div>
+        </section>
+        <section class="content">
+            <aside class="history" aria-label="Önceki taramalar">
+                <div class="history-header">
+                    <h2>Son Taramalar</h2>
+                    <button type="button" id="refresh-button" class="tertiary">Yenile</button>
+                </div>
+                <ul id="job-list"></ul>
+            </aside>
+            <section class="results" aria-live="polite">
+                <header class="results-header">
+                    <div>
+                        <h2 id="result-title">Henüz veri seçilmedi</h2>
+                        <p id="result-meta"></p>
+                    </div>
+                </header>
+                <div class="chart-wrapper">
+                    <canvas id="chart-canvas" height="240" role="img" aria-label="Grafik görselleştirme"></canvas>
+                    <div id="chart-empty" class="empty-state hidden">Grafik verisi bulunamadı.</div>
+                </div>
+                <section class="products">
+                    <h3>Ürün Kartları</h3>
+                    <div id="product-grid" class="product-grid"></div>
+                    <p id="products-empty" class="empty-state hidden">Ürün bilgisi bulunamadı.</p>
+                </section>
+                <section class="images">
+                    <h3>Yakalanan Görseller</h3>
+                    <div id="image-grid" class="image-grid"></div>
+                    <p id="images-empty" class="empty-state hidden">Görsel bulunamadı.</p>
+                </section>
+            </section>
+        </section>
+    </main>
+
+    <script>
+        window.__INITIAL_JOBS__ = {{ jobs_json | safe }};
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" integrity="sha384-P1GvyvyehZ9erjRzCQXDpUe1koRaSPoaqe7iH730cdpShUMHbOWcZH/AsLiCFYl8" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
