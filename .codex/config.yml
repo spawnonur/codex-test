@@ -1,0 +1,4 @@
+version: 1
+environment: default
+language: python
+entrypoint: main.py
